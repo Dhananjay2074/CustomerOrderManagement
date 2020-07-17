@@ -1,14 +1,21 @@
 package com.example.demo.controller;
 
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.example.demo.Configuration;
 import com.example.demo.model.Order;
 
-@FeignClient(name = "OderClient", url = "http://localhost:8080/")
+import feign.Headers;
+
+@FeignClient(name = "OderClient", url = "http://localhost:8080/", configuration = Configuration.class)
 public interface OrderManagementClient {
 
-	@PostMapping(value = "/createorder")
-	public void createOrder(Order user);
+	@RequestMapping(value = "/storeOrder", method = RequestMethod.POST)
+	@Headers("Content-Type: application/json")
+	public ResponseEntity<Order> createOrder(@RequestBody Order oder);
 
 }

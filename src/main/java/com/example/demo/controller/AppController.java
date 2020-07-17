@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,8 +16,8 @@ public class AppController {
 	private OrderManagementClient client;
 
 	@PostMapping(value = "/createorder")
-	public void createOrder(Order user) {
+	public ResponseEntity<Order> createOrder(Order order) {
 
-		client.createOrder(user);
+		return client.createOrder(order);
 	}
 }
