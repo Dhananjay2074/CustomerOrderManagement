@@ -17,7 +17,6 @@ public class AppController {
 
 	@PostMapping(value = "/createorder")
 	public ResponseEntity<Orders> createOrder(Orders order) {
-
 		return client.createOrder(order);
 	}
 }
