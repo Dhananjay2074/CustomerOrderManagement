@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.demo.Configuration;
-import com.example.demo.model.Order;
+import com.example.demo.model.Orders;
 
 import feign.Headers;
 
@@ -16,6 +16,6 @@ public interface OrderManagementClient {
 
 	@RequestMapping(value = "/storeOrder", method = RequestMethod.POST)
 	@Headers("Content-Type: application/json")
-	public ResponseEntity<Order> createOrder(@RequestBody Order oder);
+	public ResponseEntity<Orders> createOrder(@RequestBody Orders oder);
 
 }

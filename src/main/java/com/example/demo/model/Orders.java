@@ -17,8 +17,8 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "Order")
-public class Order implements Serializable {
+@Table(name = "Orders")
+public class Orders implements Serializable {
 	/**
 	 * 
 	 */
@@ -35,7 +35,7 @@ public class Order implements Serializable {
 	private String shippingAddress;
 	@Column
 	private String total;
-	@OneToMany(mappedBy = "order")
+	@OneToMany(mappedBy = "orders")
 	private Set<OrderItem> orderItems;
 
 	public void addOrderitem(OrderItem tempOrderItem) {

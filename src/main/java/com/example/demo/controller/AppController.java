@@ -5,7 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.model.Order;
+import com.example.demo.model.Orders;
 
 import lombok.RequiredArgsConstructor;
 
@@ -16,7 +16,7 @@ public class AppController {
 	private OrderManagementClient client;
 
 	@PostMapping(value = "/createorder")
-	public ResponseEntity<Order> createOrder(Order order) {
+	public ResponseEntity<Orders> createOrder(Orders order) {
 
 		return client.createOrder(order);
 	}
